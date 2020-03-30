@@ -1,0 +1,19 @@
+.button {
+  width: 47px;
+  height: 47px;
+  border: 1px solid #222;
+  background: #aaa;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.button > * {
+  position: relative;
+  top: 25%;
+}
+
+.grid {
+  display: inline-block;
+  margin: auto;
+  background: #eee
+}
