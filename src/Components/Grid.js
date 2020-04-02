@@ -1,105 +1,111 @@
-import React, { Component } from 'react'
-import { Button } from './Button'
+import React, { useState, useEffect, useMemo } from 'react'
+import Button from './Button'
 import '../Game.css';
 
-class Grid extends Component {
-  state = { completeGrid : [] }
+const Grid = (props) => {
+  const { W, H, B } = props
+  const [completeGrid, setCompleteGrid] = useState([]);
+  const [bombs, setBombs] = useState([]);
+  const [toWin, setWin] = useState(null);
+  const [Cells] = useState([])
 
-  componentWillMount = () => {
-    const { W, H, B } = this.props
-    var bombs = [];
+  useMemo(() => {
+    // initialize elements bombs
+    // console.log(props.status)
     let i = 0;
-    while ( i < ( H * W ) && bombs.length < ( B ) ){
-      let x = Math.floor(i%W + Math.random()*( W - i%W ))
-      let y = Math.floor(i%H + Math.random()*( H - i%H ))
-      // console.log(` ${JSON.stringify(bombs)} = ${JSON.stringify({x:x, y:y})} : ${JSON.stringify(bombs).includes(JSON.stringify({x:x, y:y}))}`)
-      if( !JSON.stringify(bombs).includes(JSON.stringify({x:x, y:y})) )
-        bombs.push({ x:x, y:y })
-      i++
+    let count = 0;
+    const tpmBombs = [];
+    while (i < (H * W) && count < (B)) {
+      let x = Math.floor(Math.random() * W);
+      let y = Math.floor(Math.random() * H);
+      if (!JSON.stringify(tpmBombs).includes(JSON.stringify({ x: x, y: y }))) {
+        tpmBombs.push({ x: x, y: y })
+        count++
+      }
+      i++;
     }
-    this.setState({ bombs })
-  }
+    setBombs(tpmBombs);
+    return () => {
+      setBombs([])
+    }
+  }, [B, H, W])
 
-  componentDidMount(){
-    this.fillCase()
-    this.toWin = this.props.H * this.props.W - (this.props.B + 1)
-  }
+  useEffect(() => {
+    fillCase();
+    return () => setCompleteGrid([])
+  }, []);
 
-  fillCase = () => {
-    const { W, H } = this.props
-    const { bombs } = this.state
-    const completeGrid = [];
+  useEffect(() => {
+    setWin(H * W - (B))
+  }, [completeGrid])
+
+  useEffect(() => {
+    toWin < 1 && props.setGameState('YOU WIN');
+  }, [toWin])
+
+  const fillCase = () => {
+    const { W, H } = props
+    // console.log(bombs)
     // construct all the game plato
     // r: row of the plato, c: column of the plato
     // return an element {x, y, val} x: column; y: row; val: value element
-    for(let r = 0; r < H; r++ ){
-      for(let c= 0; c < W; c++ ){
-        let count=0;
+    for (let r = 0; r < H; r++) {
+      for (let c = 0; c < W; c++) {
+        let count = 0;
         let val;
-        bombs.map( (bomb, index) => {
-          // console.log(bomb);
-          let x = bomb.x, y = bomb.y;
-          // here we check if the current element is not a bomb
-          let bool = !JSON.stringify(bombs).includes(JSON.stringify({x:c, y:r}))
-          // we should have a count if a bomb is near the current element and if is not a bomb
-          if(r === y - 1 && c === x && bool)
-            count++
-          if(r === y + 1 && c === x && bool)
-            count++
-          if(r === y && c === x - 1 && bool)
-            count++
-          if(r === y && c === x + 1 && bool)
-            count++
-          if(r === y + 1 && c === x + 1 && bool)
-            count++
-          if(r === y - 1 && c === x - 1 && bool)
-            count++
-          if(r === y + 1 && c === x - 1 && bool)
-            count++
-          if(r === y - 1 && c === x + 1 && bool)
-            count++
-          //check if the current element is a bomb or neutral or a number
-          val = bool ? count > 0 ? count : '.' : 'B'
-        })
-        completeGrid.push({ x:r, y:c, b: val });
+        let bool = !JSON.stringify(bombs).includes(JSON.stringify({ x: c, y: r }))
+        if (JSON.stringify(bombs).includes(JSON.stringify({ x: c, y: r + 1 })) && bool)
+          count++
+        if (JSON.stringify(bombs).includes(JSON.stringify({ x: c + 1, y: r + 1 })) && bool)
+          count++
+        if (JSON.stringify(bombs).includes(JSON.stringify({ x: c + 1, y: r })) && bool)
+          count++
+        if (JSON.stringify(bombs).includes(JSON.stringify({ x: c, y: r - 1 })) && bool)
+          count++
+        if (JSON.stringify(bombs).includes(JSON.stringify({ x: c - 1, y: r })) && bool)
+          count++
+        if (JSON.stringify(bombs).includes(JSON.stringify({ x: c - 1, y: r - 1 })) && bool)
+          count++
+        if (JSON.stringify(bombs).includes(JSON.stringify({ x: c + 1, y: r - 1 })) && bool)
+          count++
+        if (JSON.stringify(bombs).includes(JSON.stringify({ x: c - 1, y: r + 1 })) && bool)
+          count++
+        val = bool ? count > 0 ? count : '' : 'B';
+        completeGrid.push({ x: c, y: r, val });
+        Cells[`${c} ${r}`] = { isShow: false, val }
       }
     }
-    this.setState({ completeGrid })
+
   }
 
-  handleAction = (coords) => {
+  const handleAction = async ({ x, y }) => {
     //if toWin === 0, You Win
-    this.toWin -= 1
-    this.toWin < 1 && this.props.setGameState('YOU WIN')
-    if( this.refs[coords.x+' '+coords.y].name !== 'B' ){
-      if( this.refs[coords.x+' '+coords.y].show === false && this.refs[coords.x+' '+coords.y].name === '.') {
-        this.refs[coords.x+' '+coords.y].toggle()
-         // parseInt(coords.x-1) > 0 && parseInt(coords.y+1) > this.props.H && parseInt(coords.y-1) < 0
-        parseInt(coords.y-1) >= 0 && this.refs[parseInt(coords.x) + ' ' + parseInt(coords.y-1)].action() //N
-        parseInt(coords.x+1) < this.props.W && parseInt(coords.y-1) >= 0 &&  this.refs[parseInt(coords.x+1)+' '+parseInt(coords.y-1)].action() //NE
-        parseInt(coords.x+1) < this.props.W && this.refs[parseInt(coords.x+1)+' '+coords.y].action() //E
-        parseInt(coords.x+1) < this.props.W && parseInt(coords.y+1) < this.props.H && this.refs[parseInt(coords.x+1)+' '+parseInt(coords.y+1)].action() // SE
-        parseInt(coords.y+1) < this.props.H && this.refs[coords.x+' '+parseInt(coords.y+1)].action() //S
-        parseInt(coords.x-1) >= 0 && parseInt(coords.y+1) < this.props.H && this.refs[parseInt(coords.x-1)+' '+parseInt(coords.y+1)].action() //SW
-        parseInt(coords.x-1) >= 0 && this.refs[parseInt(coords.x-1)+' '+coords.y].action() //W
-        parseInt(coords.x-1) >= 0 && parseInt(coords.y-1) >= 0 && this.refs[parseInt(coords.x-1)+' '+parseInt(coords.y-1)].action() //NW
+    if (Cells[`${x} ${y}`].val !== 'B') {
+      if (!Cells[`${x} ${y}`].isShow) {
+        setWin(e => e - 1)
+        Cells[`${x} ${y}`] = { ...Cells[`${x} ${y}`], isShow: true }
+        if (Cells[`${x} ${y}`].val === '') {
+          y - 1 >= 0 && handleAction({ x, y: y - 1 }) // N
+          x + 1 < W && y - 1 >= 0 && handleAction({ x: x + 1, y: y - 1 }) // NE
+          x + 1 < W && handleAction({ x: x + 1, y }) // E
+          x + 1 < W && y + 1 < H && handleAction({ x: x + 1, y: y + 1 }) // SE
+          y + 1 < H && handleAction({ x, y: y + 1 }) // S         
+          x - 1 >= 0 && y + 1 < H && handleAction({ x: x - 1, y: y + 1 })// SW
+          x - 1 >= 0 && handleAction({ x: x - 1, y }) //W
+          x - 1 >= 0 && y - 1 >= 0 && handleAction({ x: x - 1, y: y - 1 }) // NW
+        }
       }
-    } 
-    else this.props.setGameState('YOU LOOSE')
+    } else props.setGameState('YOU LOOSE')
   }
-
-
-  render(){
-    const { W, H } = this.props
-      return (
-        <div className='grid' style={{ width : W*50+1+'px', height : H*50+1+'px', margin: 'auto', background:'#eee' }}>
-        {this.state.completeGrid.map( (items, r) => {
-          console.log(items)
-          return <Button key={r} ref={ items.x+' '+items.y } name={ items.b } x={items.x} y={items.y} show={ false } action={ this.handleAction } />
-        })}
-        </div>
-    )
-  }
+  return (
+    <div className='grid' style={{ width: W * 50 + 1 + 'px', height: H * 50 + 1 + 'px', margin: 'auto', background: '#eee' }}>
+      {
+        completeGrid.map(({ x, y, val }) => {
+          return <Button key={x + ',' + y} name={val} isShow={Cells[x + ' ' + y].isShow} action={() => handleAction({ x, y })} />
+        })
+      }
+    </div>
+  )
 }
 
 export default Grid
