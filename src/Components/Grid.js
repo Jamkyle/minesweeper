@@ -13,6 +13,7 @@ const Grid = (props) => {
   const [toWin, setWin] = useState(null);
   const [Cells] = useState([])
   const status = useContext(gameStore)
+  const [start, setStart] = useState(false)
 
   useMemo(() => {
     // initialize elements bombs
@@ -30,6 +31,7 @@ const Grid = (props) => {
       i++;
     }
     setBombs(tpmBombs);
+    setWin(H * W - (B))
     return () => {
       setBombs([])
     }
@@ -41,7 +43,7 @@ const Grid = (props) => {
   }, []);
 
   useEffect(() => {
-    setWin(H * W - (B))
+    setStart(true)
   }, [completeGrid])
 
   useEffect(() => {
@@ -50,7 +52,7 @@ const Grid = (props) => {
 
   useEffect(() => {
     if (status === 'restartGame') {
-      resetCells()
+      resetCells();
     }
   }, [status])
 
@@ -61,6 +63,7 @@ const Grid = (props) => {
       }
     }
     setWin(H * W - (B))
+    setStart(true)
   }
 
   const fillCase = () => {
@@ -115,13 +118,15 @@ const Grid = (props) => {
           x - 1 >= 0 && y - 1 >= 0 && handleAction({ x: x - 1, y: y - 1 }) // NW
         }
       }
-    } else props.setGameState('YOU LOOSE')
+    } else {
+      props.setGameState('YOU LOOSE');
+    }
   }
   return (
     <div className='Game'>
-      <Clock />
+      { start && <Clock />}
       <div className='grid' style={{ width: W * 50 + 'px', height: H * 50 + 'px', margin: 'auto', background: '#eee' }}>
-        {
+        {start &&
           completeGrid.map(({ x, y, val }) => {
             return <Button key={x + ',' + y} name={val} isShow={Cells[x + ' ' + y].isShow} action={() => handleAction({ x, y })} />
           })
