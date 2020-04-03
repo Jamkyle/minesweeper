@@ -1,6 +1,6 @@
 .button {
-  width: 47px;
-  height: 47px;
+  width: 48px;
+  height: 48px;
   border: 1px solid #222;
   background: #aaa;
   display: inline-block;
@@ -13,14 +13,48 @@
 }
 
 .grid {
-  display: inline-block;
+  display: flex;
   margin: auto;
   background: #eee
 }
 
 .EndGame {
+  display: flex;
   position: absolute;
+  opacity: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(2,2,2, 0.8);
   transition: all 0.2s;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.show {
+  opacity: 1;
+}
+
+.button-menu {
+  margin: 1rem;
+  flex: 0 1;
+  border: #aaa 2px solid;
+  border-radius: 2rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+.button-menu:hover {
+  text-decoration: underline;
+  box-shadow: rgba(200,200,200, 1);
+  background-color: rgba(200,200,200, 0.5);
+}
+
+.Menu-End {
+  display: flex;
+  flex-direction: column;
+}
+
+.Game {
+  width: 100%;
+  overflow: auto;
 }

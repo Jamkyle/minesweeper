@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const EndGame = (props) => {
-  return (<div className='EndGame'>
-            <span>{ props.gameState }</span>
-            <div onClick={ () => props.setStart('initGame') } style={{cursor : 'pointer'}}> New Game </div>
-            <div onClick={() => props.setStart('restartGame') } style={{cursor : 'pointer'}}> RESTART </div>
-          </div>)
+  const [show, setShow] = useState('')
+  useEffect(() => {
+    let timeout = setTimeout(() => setShow('show'), 200);
+    return () => clearTimeout(timeout)
+  }, [])
+  return (<div className={`EndGame ${show}`}>
+    <span>{props.gameState}</span>
+    <div className='Menu-End'>
+      <div className='button-menu' onClick={() => props.setStart('initGame')} style={{ cursor: 'pointer' }}> New Game </div>
+      <div className='button-menu' onClick={() => props.setStart('restartGame')} style={{ cursor: 'pointer' }}> RESTART </div>
+    </div>
+  </div>)
 }
