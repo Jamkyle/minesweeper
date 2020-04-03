@@ -6,9 +6,13 @@ const Clock = () => {
   const status = useContext(gameStore)
   let interval = null
   useEffect(() => {
-    interval = setInterval(() => {
-      setClock(e => e + 1)
-    }, 1000);
+    if(interval === null && (status === 'inGame' || status === 'restartGame')){
+      setClock(0)
+      interval = setInterval(() => {
+        setClock(e => e + 1)
+      }, 1000);
+    }
+
     if (status === 'YOU LOOSE' || status === 'YOU WIN'){
       clearInterval(interval)
     }
