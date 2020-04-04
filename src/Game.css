@@ -39,15 +39,18 @@
 .button-menu {
   margin: 1rem;
   flex: 0 1;
-  border: #aaa 2px solid;
-  border-radius: 2rem;
+  /* border: #aaa 2px solid;
+  border-radius: 2rem; */
   padding: 1rem;
   font-size: 2rem;
+  color: #aaa;
+  border-bottom: transparent 3px solid;
 }
 .button-menu:hover {
-  text-decoration: underline;
-  box-shadow: rgba(200,200,200, 1);
-  background-color: rgba(200,200,200, 0.5);
+  color: #fff;
+  border-color: #fff;
+  /* box-shadow: rgba(200,200,200, 1); */
+  /* background-color: rgba(200,200,200, 0.5); */
 }
 
 .Menu-End {

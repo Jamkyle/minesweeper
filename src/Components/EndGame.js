@@ -9,8 +9,8 @@ export const EndGame = (props) => {
   return (<div className={`EndGame ${show}`}>
     <span>{props.gameState}</span>
     <div className='Menu-End'>
+      <div className='button-menu' onClick={() => props.setStart('restartGame')} style={{ cursor: 'pointer' }}> Try again </div>
       <div className='button-menu' onClick={() => props.setStart('initGame')} style={{ cursor: 'pointer' }}> New Game </div>
-      <div className='button-menu' onClick={() => props.setStart('restartGame')} style={{ cursor: 'pointer' }}> RESTART </div>
     </div>
   </div>)
 }

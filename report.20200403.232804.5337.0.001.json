@@ -1,0 +1,565 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200403.232804.5337.0.001.json",
+    "dumpEventTime": "2020-04-03T23:28:04Z",
+    "dumpEventTimeStamp": "1585949284865",
+    "processId": 5337,
+    "cwd": "/Users/arohavana/www/Game/demineur",
+    "commandLine": [
+      "/usr/local/bin/node",
+      "/Users/arohavana/www/Game/demineur/node_modules/jest-worker/build/workers/processChild.js"
+    ],
+    "nodejsVersion": "v12.13.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "darwin",
+    "componentVersions": {
+      "node": "12.13.0",
+      "v8": "7.7.299.13-node.12",
+      "uv": "1.32.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.13.0/node-v12.13.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.13.0/node-v12.13.0.tar.gz"
+    },
+    "osName": "Darwin",
+    "osRelease": "19.3.0",
+    "osVersion": "Darwin Kernel Version 19.3.0: Thu Jan  9 20:58:23 PST 2020; root:xnu-6153.81.5~1/RELEASE_X86_64",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz",
+        "speed": 2700,
+        "user": 3686830,
+        "nice": 0,
+        "sys": 1889880,
+        "idle": 22927640,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz",
+        "speed": 2700,
+        "user": 916480,
+        "nice": 0,
+        "sys": 614670,
+        "idle": 26972500,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz",
+        "speed": 2700,
+        "user": 3618710,
+        "nice": 0,
+        "sys": 1515630,
+        "idle": 23369300,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz",
+        "speed": 2700,
+        "user": 834100,
+        "nice": 0,
+        "sys": 539570,
+        "idle": 27129980,
+        "irq": 0
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "fe80::1",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 1
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "ac:bc:32:b4:72:27",
+        "address": "fe80::1ca3:5f8c:8878:8f15",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 4
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "ac:bc:32:b4:72:27",
+        "address": "2a01:e35:2fef:2190:1c4b:cfe1:d342:ed94",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "ac:bc:32:b4:72:27",
+        "address": "2a01:e35:2fef:2190:d11e:30f7:1f5d:beb8",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "ac:bc:32:b4:72:27",
+        "address": "192.168.0.6",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "awdl0",
+        "internal": false,
+        "mac": "fa:c0:29:90:a8:16",
+        "address": "fe80::f8c0:29ff:fe90:a816",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 9
+      },
+      {
+        "name": "llw0",
+        "internal": false,
+        "mac": "fa:c0:29:90:a8:16",
+        "address": "fe80::f8c0:29ff:fe90:a816",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 10
+      },
+      {
+        "name": "utun0",
+        "internal": false,
+        "mac": "00:00:00:00:00:00",
+        "address": "fe80::709b:bca0:48dc:4d30",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 11
+      },
+      {
+        "name": "utun1",
+        "internal": false,
+        "mac": "00:00:00:00:00:00",
+        "address": "fe80::f090:1539:f708:e828",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 12
+      }
+    ],
+    "host": "MacBook-Pro-de-aro.local"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x000000010014da5c",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, v8::Local<v8::String>) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x000000010007e8a3",
+      "symbol": "node::OnFatalError(char const*, char const*) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x0000000100176267",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x0000000100176203",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x00000001002fa2b5",
+      "symbol": "v8::internal::Heap::FatalProcessOutOfMemory(char const*) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x00000001002fb984",
+      "symbol": "v8::internal::Heap::RecomputeLimits(v8::internal::GarbageCollector) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x00000001002f8857",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x00000001002f683d",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x0000000100301f54",
+      "symbol": "v8::internal::Heap::AllocateRawWithLightRetry(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x0000000100301fcf",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x00000001002cebc7",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x00000001005f7b8d",
+      "symbol": "v8::internal::Runtime_AllocateInOldGeneration(int, unsigned long*, v8::internal::Isolate*) [/usr/local/bin/node]"
+    },
+    {
+      "pc": "0x000000010092fbd9",
+      "symbol": "Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit [/usr/local/bin/node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2197704704,
+    "totalCommittedMemory": 2179025456,
+    "usedMemory": 2117538048,
+    "availableMemory": 77288448,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 32568,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 33554432,
+        "committedMemory": 15677352,
+        "capacity": 16759808,
+        "used": 1339704,
+        "available": 15420104
+      },
+      "old_space": {
+        "memorySize": 1991880704,
+        "committedMemory": 1991636160,
+        "capacity": 1989673520,
+        "used": 1944905152,
+        "available": 44768368
+      },
+      "code_space": {
+        "memorySize": 950272,
+        "committedMemory": 796384,
+        "capacity": 672544,
+        "used": 672544,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 82055168,
+        "committedMemory": 81881008,
+        "capacity": 81668640,
+        "used": 81668640,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 88952832,
+        "committedMemory": 88952832,
+        "capacity": 88916160,
+        "used": 88916160,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 16759808,
+        "used": 0,
+        "available": 16759808
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 1558.45,
+    "kernelCpuSeconds": 27.0617,
+    "cpuConsumptionPercent": 81.6854,
+    "maxRss": 2311036338176,
+    "pageFaults": {
+      "IORequired": 28,
+      "IONotRequired": 809384
+    },
+    "fsActivity": {
+      "reads": 0,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "npm_package_dependencies_react_test_renderer": "^16.8.6",
+    "TERM_PROGRAM": "vscode",
+    "NODE": "/usr/local/bin/node",
+    "npm_config_version_git_tag": "true",
+    "ANDROID_HOME": "/Users/arohavana/Library/Android/sdk",
+    "INIT_CWD": "/Users/arohavana/www/Game/demineur",
+    "SHELL": "/bin/bash",
+    "TERM": "xterm-256color",
+    "TMPDIR": "/var/folders/pp/25fr1sc17pd2z_6k67cx8x200000gn/T/",
+    "npm_config_init_license": "MIT",
+    "TERM_PROGRAM_VERSION": "1.42.0",
+    "ANDROID_SDK_ROOT": "/Users/arohavana/Library/Android/sdk",
+    "npm_package_dependencies_enzyme": "^3.9.0",
+    "npm_config_registry": "https://registry.yarnpkg.com",
+    "npm_package_private": "true",
+    "npm_package_dependencies_react_dom": "^16.8.6",
+    "npm_package_readmeFilename": "README.md",
+    "npm_package_description": "A very famous game where you have to find every bombs set in a grid",
+    "USER": "arohavana",
+    "npm_package_browserslist_development_1": "last 1 firefox version",
+    "npm_package_browserslist_development_0": "last 1 chrome version",
+    "npm_package_eslintConfig_extends": "react-app",
+    "SSH_AUTH_SOCK": "/private/tmp/com.apple.launchd.i3tSqgZEu7/Listeners",
+    "npm_package_browserslist_development_2": "last 1 safari version",
+    "__CF_USER_TEXT_ENCODING": "0x1F5:0x0:0x1",
+    "npm_execpath": "/Users/arohavana/.config/yarn/global/node_modules/yarn/bin/yarn.js",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"test\"],\"original\":[\"test\"]}",
+    "PATH": "/var/folders/pp/25fr1sc17pd2z_6k67cx8x200000gn/T/yarn--1585947340602-0.09100638302834119:/Users/arohavana/www/Game/demineur/node_modules/.bin:/Users/arohavana/.config/yarn/link/node_modules/.bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/arohavana/Library/Android/sdk/tools:/Users/arohavana/Library/Android/sdk/platform-tools:/Users/arohavana/Library/Android/sdk/tools:/Users/arohavana/Library/Android/sdk/platform-tools",
+    "_": "/Users/arohavana/www/Game/demineur/node_modules/.bin/react-scripts",
+    "npm_package_browserslist_production_1": "not dead",
+    "npm_package_browserslist_production_0": ">0.2%",
+    "PWD": "/Users/arohavana/www/Game/demineur",
+    "npm_package_browserslist_production_2": "not op_mini all",
+    "npm_lifecycle_event": "test",
+    "npm_package_name": "demineur",
+    "LANG": "fr_FR.UTF-8",
+    "npm_config_version_commit_hooks": "true",
+    "npm_package_scripts_start": "react-scripts start",
+    "npm_package_scripts_build": "react-scripts build",
+    "XPC_FLAGS": "0x0",
+    "npm_config_bin_links": "true",
+    "npm_config_ignore_engines": "true",
+    "npm_package_version": "0.1.0",
+    "XPC_SERVICE_NAME": "0",
+    "HOME": "/Users/arohavana",
+    "SHLVL": "3",
+    "npm_package_scripts_test": "react-scripts test",
+    "npm_config_strict_ssl": "true",
+    "npm_config_save_prefix": "^",
+    "npm_config_version_git_message": "v%s",
+    "npm_package_dependencies_react_scripts": "3.0.1",
+    "YARN_WRAP_OUTPUT": "false",
+    "LOGNAME": "arohavana",
+    "npm_lifecycle_script": "react-scripts test",
+    "npm_package_dependencies_enzyme_adapter_react_16": "^1.15.2",
+    "npm_package_dependencies_react": "^16.8.6",
+    "npm_config_user_agent": "yarn/1.19.1 npm/? node/v12.13.0 darwin x64",
+    "npm_config_ignore_scripts": "",
+    "npm_config_version_git_sign": "",
+    "npm_config_ignore_optional": "",
+    "npm_config_init_version": "1.0.0",
+    "npm_package_scripts_eject": "react-scripts eject",
+    "npm_config_version_tag_prefix": "v",
+    "npm_node_execpath": "/usr/local/bin/node",
+    "COLORTERM": "truecolor",
+    "BABEL_ENV": "test",
+    "NODE_ENV": "test",
+    "PUBLIC_URL": "",
+    "NODE_PATH": "",
+    "JEST_WORKER_ID": "1",
+    "FORCE_COLOR": "1"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 10240,
+      "hard": "unlimited"
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": 67104768
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 1392,
+      "hard": 2088
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "/usr/local/bin/node",
+    "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+    "/usr/lib/libSystem.B.dylib",
+    "/usr/lib/libc++.1.dylib",
+    "/usr/lib/libobjc.A.dylib",
+    "/usr/lib/libfakelink.dylib",
+    "/usr/lib/libDiagnosticMessagesClient.dylib",
+    "/usr/lib/libicucore.A.dylib",
+    "/usr/lib/libz.1.dylib",
+    "/usr/lib/libc++abi.dylib",
+    "/usr/lib/system/libcache.dylib",
+    "/usr/lib/system/libcommonCrypto.dylib",
+    "/usr/lib/system/libcompiler_rt.dylib",
+    "/usr/lib/system/libcopyfile.dylib",
+    "/usr/lib/system/libcorecrypto.dylib",
+    "/usr/lib/system/libdispatch.dylib",
+    "/usr/lib/system/libdyld.dylib",
+    "/usr/lib/system/libkeymgr.dylib",
+    "/usr/lib/system/liblaunch.dylib",
+    "/usr/lib/system/libmacho.dylib",
+    "/usr/lib/system/libquarantine.dylib",
+    "/usr/lib/system/libremovefile.dylib",
+    "/usr/lib/system/libsystem_asl.dylib",
+    "/usr/lib/system/libsystem_blocks.dylib",
+    "/usr/lib/system/libsystem_c.dylib",
+    "/usr/lib/system/libsystem_configuration.dylib",
+    "/usr/lib/system/libsystem_coreservices.dylib",
+    "/usr/lib/system/libsystem_darwin.dylib",
+    "/usr/lib/system/libsystem_dnssd.dylib",
+    "/usr/lib/system/libsystem_featureflags.dylib",
+    "/usr/lib/system/libsystem_info.dylib",
+    "/usr/lib/system/libsystem_m.dylib",
+    "/usr/lib/system/libsystem_malloc.dylib",
+    "/usr/lib/system/libsystem_networkextension.dylib",
+    "/usr/lib/system/libsystem_notify.dylib",
+    "/usr/lib/system/libsystem_sandbox.dylib",
+    "/usr/lib/system/libsystem_secinit.dylib",
+    "/usr/lib/system/libsystem_kernel.dylib",
+    "/usr/lib/system/libsystem_platform.dylib",
+    "/usr/lib/system/libsystem_pthread.dylib",
+    "/usr/lib/system/libsystem_symptoms.dylib",
+    "/usr/lib/system/libsystem_trace.dylib",
+    "/usr/lib/system/libunwind.dylib",
+    "/usr/lib/system/libxpc.dylib",
+    "/Users/arohavana/www/Game/demineur/node_modules/fsevents/build/Release/fse.node",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices",
+    "/System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices",
+    "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList",
+    "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+    "/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit",
+    "/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration",
+    "/System/Library/Frameworks/Security.framework/Versions/A/Security",
+    "/usr/lib/libsqlite3.dylib",
+    "/usr/lib/libxml2.2.dylib",
+    "/usr/lib/libnetwork.dylib",
+    "/usr/lib/libapple_nghttp2.dylib",
+    "/usr/lib/libauto.dylib",
+    "/usr/lib/libcompression.dylib",
+    "/System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration",
+    "/usr/lib/libarchive.2.dylib",
+    "/usr/lib/liblangid.dylib",
+    "/usr/lib/libCRFSuite.dylib",
+    "/usr/lib/liblzma.5.dylib",
+    "/usr/lib/libenergytrace.dylib",
+    "/usr/lib/libbsm.0.dylib",
+    "/usr/lib/system/libkxld.dylib",
+    "/System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression",
+    "/usr/lib/libcoretls.dylib",
+    "/usr/lib/libcoretls_cfhelpers.dylib",
+    "/usr/lib/libpam.2.dylib",
+    "/usr/lib/libxar.1.dylib",
+    "/usr/lib/libbz2.1.0.dylib",
+    "/usr/lib/libiconv.2.dylib",
+    "/usr/lib/libcharset.1.dylib",
+    "/usr/lib/libpcap.A.dylib",
+    "/System/Library/Frameworks/NetFS.framework/Versions/A/NetFS",
+    "/System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth",
+    "/System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework/Versions/A/loginsupport",
+    "/System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC",
+    "/System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP",
+    "/System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities",
+    "/usr/lib/libmecabra.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+    "/usr/lib/libmecab.dylib",
+    "/usr/lib/libgermantok.dylib",
+    "/usr/lib/libThaiTokenizer.dylib",
+    "/usr/lib/libChineseTokenizer.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib",
+    "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib",
+    "/System/Library/PrivateFrameworks/LanguageModeling.framework/Versions/A/LanguageModeling",
+    "/System/Library/PrivateFrameworks/CoreEmoji.framework/Versions/A/CoreEmoji",
+    "/System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData",
+    "/System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon",
+    "/usr/lib/libcmph.dylib",
+    "/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory",
+    "/System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory",
+    "/System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS",
+    "/System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation",
+    "/usr/lib/libutil.dylib",
+    "/System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore",
+    "/System/Library/Frameworks/ServiceManagement.framework/Versions/A/ServiceManagement",
+    "/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement",
+    "/usr/lib/libxslt.1.dylib"
+  ]
+}

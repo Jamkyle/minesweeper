@@ -10,11 +10,15 @@ import './Game.css';
 const sizeReducer = (state, action) => {
   switch (action.type) {
     case 'width':
-      return { ...state, width: action.value }
+      const width = action.value > 100 ? 100 : action.value
+      return { ...state, width }
     case 'height':
-      return { ...state, height: action.value }
+      const height = action.value > 100 ? 100: action.value
+      return { ...state, height }
     case 'bombe':
-      return { ...state, bombe: action.value }
+      let bombe = action.value > 100 ? 100: action.value
+      bombe = bombe >= ( state.width * state.height ) ? (state.width * state.height - 2) : bombe
+      return { ...state, bombe }
     default:
       return state
   }
@@ -57,7 +61,7 @@ const App = () => {
             <input type='text' name='width' placeholder='width' value={game.width} onChange={handleChange} />
             <input type='text' name='height' placeholder='height' value={game.height} onChange={handleChange} />
             <input type='text' name='bombe' placeholder='bombe' value={game.bombe} onChange={handleChange} />
-            <div className='button-menu' onClick={onsubmit} style={{ cursor: 'pointer' }} >New Game</div>
+            <div className='button-menu' onClick={onsubmit} style={{ cursor: 'pointer' }} >Let's play</div>
           </div>
         }
         {status !== 'initGame' && <Grid W={game.width} H={game.height} B={game.bombe} status={status} setGameState={setGameState} />}
