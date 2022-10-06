@@ -8,14 +8,15 @@ import Clock from './Clock'
 
 describe("Grid", () => {
   const props = {
-    W: 1000,
-    H: 1000,
-    B: 800
+    W: 10,
+    H: 10,
+    B: 8
   }
   const wrapper = mount(<Grid {...props} />)
   it("render", () => {
     wrapper
   });
+
   it("every cells are well mount", () => {
     expect(wrapper.find(Button).length).toBe(props.W * props.H)
   });
