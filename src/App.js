@@ -37,21 +37,8 @@ const App = () => {
   const [game, dispatch] = useReducer(sizeReducer, {
     width: 8,
     height: 8,
-    bombe: 11,
+    bombe: 8,
   });
-
-  // useEffect(() => {
-  //   switch (status) {
-  //     case 'initGame':
-  //       setGameState('initGame');
-  //       break;
-  //     case 'restartGame':
-  //       setGameState('inGame')
-  //       console.log(status)
-  //     default:
-  //       setGameState(status)
-  //   }
-  // }, [status])
 
   const handleChange = (e) => {
     dispatch({ type: e.target.name, value: e.target.value });

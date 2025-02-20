@@ -32,16 +32,14 @@ export function EndGame(props) {
           onClick={() => props.setStart(GAMESTATUS.RESET)}
           style={{ cursor: "pointer" }}
         >
-          {" "}
-          Try again{" "}
+          Try again
         </div>
         <div
           className="button-menu"
           onClick={() => props.setStart(GAMESTATUS.INIT)}
           style={{ cursor: "pointer" }}
         >
-          {" "}
-          New Game{" "}
+          New Game
         </div>
       </div>
     </div>

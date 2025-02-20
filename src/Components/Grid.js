@@ -62,10 +62,6 @@ const Grid = (props) => {
   const fillCase = () => {
     const { W, H } = props;
     const tmpGrid = [];
-    // console.log(bombs)
-    // construct all the game plato
-    // r: row of the plato, c: column of the plato
-    // return an element {x, y, val} x: column; y: row; val: value element
     for (let r = 0; r < H; r++) {
       for (let c = 0; c < W; c++) {
         let bombsAroundCase = 0;
@@ -73,7 +69,6 @@ const Grid = (props) => {
         const bombString = JSON.stringify(bombs);
         let isASafeCase = !bombString.includes(JSON.stringify({ x: c, y: r }));
         if (isASafeCase) {
-          //check bomb around
           for (let rX = -1; rX <= 1; rX++) {
             for (let rY = -1; rY <= 1; rY++)
               if (
@@ -82,17 +77,6 @@ const Grid = (props) => {
                 bombsAroundCase++;
               }
           }
-          // if (
-          //   bombString.includes(JSON.stringify({ x: c, y: r + 1 })) ||
-          //   bombString.includes(JSON.stringify({ x: c + 1, y: r + 1 })) ||
-          //   bombString.includes(JSON.stringify({ x: c + 1, y: r })) ||
-          //   bombString.includes(JSON.stringify({ x: c, y: r - 1 })) ||
-          //   bombString.includes(JSON.stringify({ x: c - 1, y: r })) ||
-          //   bombString.includes(JSON.stringify({ x: c - 1, y: r - 1 })) ||
-          //   bombString.includes(JSON.stringify({ x: c + 1, y: r - 1 })) ||
-          //   bombString.includes(JSON.stringify({ x: c - 1, y: r + 1 }))
-          // )
-          //   bombsAroundCase++;
         }
 
         val = isASafeCase ? (bombsAroundCase > 0 ? bombsAroundCase : "") : "B";
