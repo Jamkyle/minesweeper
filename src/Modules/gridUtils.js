@@ -30,7 +30,7 @@ export const fillGrid = ({ bombs, W, H }) => {
         x,
         y,
         val: isBomb ? "B" : bombCount || "",
-        isShow: isBomb,
+        isShow: false,
       });
     }
   }

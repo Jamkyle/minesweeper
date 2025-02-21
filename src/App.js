@@ -67,7 +67,7 @@ const App = () => {
               type="text"
               name="width"
               placeholder="width"
-              value={game.width}
+              defaultValue={game.width}
               onChange={handleChange}
             />
             <input
