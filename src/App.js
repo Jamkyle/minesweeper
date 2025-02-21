@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useReducer, createContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useReducer,
+  createContext,
+  useCallback,
+} from "react";
 // import logo from './logo.svg';
 // import { Button } from './Components/Button'
 import Grid from "./Components/Grid";
@@ -40,9 +46,12 @@ const App = () => {
     bombe: 8,
   });
 
-  const handleChange = (e) => {
-    dispatch({ type: e.target.name, value: e.target.value });
-  };
+  const handleChange = useCallback(
+    (e) => {
+      dispatch({ type: e.target.name, value: e.target.value });
+    },
+    [game]
+  );
   const onsubmit = () => {
     setGameState("inGame");
   };
@@ -65,14 +74,13 @@ const App = () => {
               type="text"
               name="height"
               placeholder="height"
-              value={game.height}
+              defaultValue={game.height}
               onChange={handleChange}
             />
             <input
               type="text"
               name="bombe"
               placeholder="bombe"
-              value={game.bombe}
               onChange={handleChange}
             />
             <div
