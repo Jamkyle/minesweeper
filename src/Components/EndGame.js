@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import GAMESTATUS from "../Constants/GameStatus";
+import { useGame } from "../hooks/useGameStore";
 
 export function EndGame(props) {
   const [show, setShow] = useState("");
   const [title, setTitle] = useState("");
+  const { gameStatus, setGameStatus: setStart } = useGame();
 
   useEffect(() => {
     let timeout = setTimeout(() => setShow("show"), 200);
-    switch (props.gameState) {
+    console.log("gameStatus", gameStatus);
+    switch (gameStatus) {
       case GAMESTATUS.WIN:
         setTitle("Well done");
         break;
@@ -18,10 +21,10 @@ export function EndGame(props) {
         setTitle("PAUSE");
         break;
       default:
-        setTitle(props.gameState);
+        setTitle(gameStatus);
     }
     return () => clearTimeout(timeout);
-  }, []);
+  }, [gameStatus]);
 
   return (
     <div className={`EndGame ${show}`}>
@@ -29,14 +32,14 @@ export function EndGame(props) {
       <div className="Menu-End">
         <div
           className="button-menu"
-          onClick={() => props.setStart(GAMESTATUS.RESET)}
+          onClick={() => setStart(GAMESTATUS.RESET)}
           style={{ cursor: "pointer" }}
         >
           Try again
         </div>
         <div
           className="button-menu"
-          onClick={() => props.setStart(GAMESTATUS.INIT)}
+          onClick={() => setStart(GAMESTATUS.INIT)}
           style={{ cursor: "pointer" }}
         >
           New Game

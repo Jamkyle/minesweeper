@@ -30,7 +30,7 @@ export const fillGrid = ({ bombs, W, H }) => {
         x,
         y,
         val: isBomb ? "B" : bombCount || "",
-        isShow: false,
+        isShow: isBomb,
       });
     }
   }
@@ -41,4 +41,8 @@ export const resetGrid = (prevGrid) => {
   const resetGrid = new Map(prevGrid);
   resetGrid.forEach((cell) => (cell.isShow = false));
   return resetGrid;
+};
+
+export const isAValidGrid = ({ bombs, width, height }) => {
+  return width < 31 && height < 31 && bombs < width * height - 1;
 };

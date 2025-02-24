@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import { gameStore } from "../App";
+import React, { useState, useEffect } from "react";
+import { useGame } from "../hooks/useGameStore";
 
 const Clock = () => {
   const [clock, setClock] = useState(0);
-  const status = useContext(gameStore);
+  const { gameStatus } = useGame();
   let interval = null;
   useEffect(() => {
     if (
       interval === null &&
-      (status === "inGame" || status === "restartGame")
+      (gameStatus === "inGame" || gameStatus === "restartGame")
     ) {
       setClock(0);
       interval = setInterval(() => {
@@ -16,14 +16,14 @@ const Clock = () => {
       }, 1000);
     }
 
-    if (status === "YOU LOOSE" || status === "YOU WIN") {
+    if (gameStatus === "YOU LOOSE" || gameStatus === "YOU WIN") {
       clearInterval(interval);
     }
     return () => {
       clearInterval(interval);
       interval = null;
     };
-  }, [status]);
+  }, [gameStatus]);
 
   return (
     <div className="clock">

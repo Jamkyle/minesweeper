@@ -41,6 +41,16 @@
   opacity: 1;
 }
 
+.button.flat {
+  border: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.text-white {
+  color: #aaa
+}
+
 .button-menu {
   margin: 1rem;
   flex: 0 1;
@@ -66,4 +76,16 @@
 .Game {
   width: 100%;
   overflow: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-around {
+  justify-content: space-around;
 }

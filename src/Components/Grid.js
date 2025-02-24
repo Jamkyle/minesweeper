@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import Clock from "./Clock";
 import GameStatus from "../Constants/GameStatus";
 import Button from "./Button";
-import { gameStore } from "../App";
 import "../Game.css";
 import { fillGrid, generateBombs, resetGrid } from "../Modules/gridUtils";
+import { useGame } from "../hooks/useGameStore";
 
 const Grid = (props) => {
-  const { W, H, B, setGameState } = props;
+  const { W, H, B } = props;
   const [completeGrid, setCompleteGrid] = useState([]);
   const [bombs, setBombs] = useState([]);
   const [toWin, setToWin] = useState(H * W - B);
-  const status = useContext(gameStore);
+  const { gameStatus, setGameStatus } = useGame();
   let clockReset = 1;
   useEffect(() => {
     const bombsGenerated = generateBombs({ B, H, W });
@@ -25,16 +25,16 @@ const Grid = (props) => {
   }, [bombs, W, H]);
 
   useEffect(() => {
-    toWin < 1 && setGameState(GameStatus.WIN);
-  }, [toWin, setGameState]);
+    toWin < 1 && setGameStatus(GameStatus.WIN);
+  }, [toWin, setGameStatus]);
 
   useEffect(() => {
-    if (status === GameStatus.RESET) {
+    if (gameStatus === GameStatus.RESET) {
       setCompleteGrid(resetGrid);
       setToWin(H * W - B);
       clockReset++;
     }
-  }, [status]);
+  }, [gameStatus]);
 
   const revealCell = (x, y) => {
     setCompleteGrid((prevGrid) => {
@@ -42,7 +42,7 @@ const Grid = (props) => {
       const cell = newGrid.get(`${x},${y}`);
       if (!cell || cell.isShow) return newGrid;
       if (cell.val === "B") {
-        setGameState(GameStatus.LOOSE);
+        setGameStatus(GameStatus.LOOSE);
         return newGrid;
       }
       if (cell.val === "") {
