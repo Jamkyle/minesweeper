@@ -46,6 +46,7 @@ export default function GridSetup() {
         name="bombs"
         max={gameConfig.height * gameConfig.width - 1}
         min={1}
+        defaultValue={gameConfig.bombs}
         placeholder="bombes"
         onChange={handleChange}
       />
